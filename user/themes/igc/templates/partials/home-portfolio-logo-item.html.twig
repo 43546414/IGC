@@ -1,0 +1,10 @@
+{% set company_logo = page.media.images|first %}
+{% if company_logo is empty %}
+  {% set company_logo = page.media.files|first %}
+{% endif %}
+
+{% block content %}
+  <div class="col-sm-gutter col-sm-4 col-xs-6">
+    <div class="portfolio-image">{{ company_logo.html }}</div>
+  </div>
+{% endblock %}

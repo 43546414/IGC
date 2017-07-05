@@ -1,0 +1,7 @@
+{% block content %}
+  <div class="content-wrapper company-list">
+  {% for company in page.collection() %}
+    {% include 'partials/company-item.html.twig' with {'page':company} %}
+  {% endfor %}
+  </div>
+{% endblock %}

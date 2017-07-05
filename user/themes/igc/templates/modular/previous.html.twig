@@ -1,0 +1,15 @@
+{% block content %}
+  <div class="container previous-list">
+  <div class="row">
+    <div class="content-wrapper content-section col-lg-8 col-lg-offset-2 dark-text">
+      <div class="heading text-center">{{ page.content }}</div>
+      {% include 'partials/h-divider.html.twig' %}
+      <div class="row previous-logo-list">
+        {% for previous_item in page.collection() %}
+          {% include 'partials/previous-item.html.twig' with {'page': previous_item} %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}

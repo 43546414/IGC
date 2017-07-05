@@ -1,0 +1,69 @@
+#main-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+#main-section .heading {
+  margin-top: 100px;
+}
+
+#headline .content-wrapper {
+  padding: 120px 0;
+}
+
+#main-section .h-divider {
+  margin-bottom: 10px;
+}
+
+#main-section h4 {
+  margin-bottom: 80px;
+}
+.financial-disclosure-table-container {
+  margin: 20px 0;
+  min-width: 828px;
+}
+.financial-table-title-wrapper {
+  background-color: #FBFBFB;
+  padding: 12px;
+}
+.financial-table-title-row {
+  font-family: 'Hiragino', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-size: 18px;
+  display: flex;
+}
+.financial-table-title-col, .financial-table-body-col {
+  flex: 1 0 33.33%;
+  min-width: 256px;
+}
+
+.financial-table-body-wrapper {
+  padding: 10px;
+}
+.financial-table-body-row {
+  display: flex;
+}
+.financial-table-body {
+  font-size: 12px;
+  font-weight: normal;
+}
+/* Medium devices (1000px and up) */
+@media (min-width: 1000px) {
+  .company {
+    display: flex;
+    align-items: center;
+  }
+  .company-row {
+    height: 190px;
+  }
+
+  .company-logo img {
+    max-height: 190px;
+  }
+}
+
+/* All devices but mobile (768px and up) */
+@media (min-width: 768px) {
+  .banner {
+    height: 550px;
+  }
+}

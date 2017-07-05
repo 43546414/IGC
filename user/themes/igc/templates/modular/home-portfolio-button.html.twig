@@ -1,0 +1,7 @@
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'-'}) }}{% endmacro %}
+
+{% block content %}
+  <div class="{{ _self.pageLinkName(page.menu) }}">
+    <a class="igc-button">{{ page.content|striptags }}</a>
+  </div>
+{% endblock %}

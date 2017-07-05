@@ -1,0 +1,8 @@
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'-'}) }}{% endmacro %}
+{% block content %}
+  <div class="row row-sm-gutter {{ _self.pageLinkName(page.menu) }}">
+    {% for item in page.collection() %}
+      {% include 'partials/home-portfolio-logo-item.html.twig' with {'page': item} %}
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% set banner_image = null %}
+{% set show_ind = rand(0, count(page.media.images) - 1) %}
+{% for image in page.media.images %}
+  {% if loop.index0 == show_ind %}
+	  {% set banner_image = image %}
+  {% endif %}
+{% endfor %}
+
+<div class="banner" style="background-image: url('{{ banner_image.url }}')">
+</div>
