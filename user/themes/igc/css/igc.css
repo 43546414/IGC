@@ -12,8 +12,8 @@ html,body {
 }
 
 p {
-  font-family: 'GothamHTF-Light', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
-  font-weight: 200;
+  font-family: 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-weight: 300;
   font-style: normal;
   font-size: 14px;
   line-height: 23px;
@@ -21,11 +21,12 @@ p {
 }
 
 h1 {
-  font-family: 'GothamHTF-Light', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
-  font-weight: 200;
+  font-family: 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-weight: 100;
   font-style: normal;
   color: #333e47;
   font-size: 42px;
+	margin-top: 80px;
 }
 h1.tagline {
   color: #fff;
@@ -33,16 +34,17 @@ h1.tagline {
 }
 
 h2 {
-  font-family: 'GothamHTF-Medium', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
-  font-weight: 200;
+  font-family: 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-weight: 100;
   font-style: normal;
   color: #fff;
-  font-size: 36px;
+  font-size: 34px;
+	line-height: 46px;
   margin-bottom: 20px;
 }
 
 h3 {
-  font-family: 'GothamHTF-Light', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-family: 'Gotham SSm A', 'Gotham SSm B' sans-serif;
   font-weight: 200;
   font-style: normal;
   color: #fff;
@@ -50,7 +52,7 @@ h3 {
   line-height: 45px;
 }
 h4 {
-  font-family: 'GothamHTF-Light', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-family: 'Gotham SSm A', 'Gotham SSm B' sans-serif;
   font-weight: 200;
   font-style: normal;
   color: #fff;
@@ -59,7 +61,7 @@ h4 {
 }
 
 h5 {
-  font-family: 'GothamHTF-Medium', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-family: 'Gotham SSm A', 'Gotham SSm B' sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #333e47;
@@ -71,8 +73,9 @@ h5 {
 }
 
 .lead {
-  font-size: 12pt !important;
+  font-size: 14px;
   font-weight: 300;
+	line-height: 23px;
   font-style: normal;
 }
 
@@ -196,16 +199,17 @@ h2.heading, .heading h2 {
 }
 
 .navbar-default .navbar-nav > li > a {
-  font-family: 'GothamHTF-Medium', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
+  font-family: 'Gotham SSm A', 'Gotham SSm B' sans-serif;
   margin-top: 8px;
   font-style: normal;
   color: #262526;
   font-size: 12px;
+	font-weight: 300;
   text-transform: uppercase;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    color: #828282;
+  color: #828282;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -614,8 +618,10 @@ h2.heading, .heading h2 {
 .copyright {
   margin-top: 70px;
   text-align: center;
-  font-size: 8pt;
   margin-bottom: 20px;
+}
+.copyright p {
+  font-size: 12px;
 }
 .copyright img {
   margin-bottom: 10px;
@@ -726,11 +732,6 @@ h2.heading, .heading h2 {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 12pt;
-}
-
-.lead {
-  color: #fff;
-  font-size: 14pt;
 }
 
 .twocolumn {

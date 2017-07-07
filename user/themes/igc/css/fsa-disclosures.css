@@ -44,7 +44,7 @@
 }
 .financial-table-body {
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 300;
 }
 /* Medium devices (1000px and up) */
 @media (min-width: 1000px) {
