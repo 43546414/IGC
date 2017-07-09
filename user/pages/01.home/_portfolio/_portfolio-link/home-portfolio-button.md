@@ -2,4 +2,4 @@
 title: 'Portfolio link'
 ---
 
-Our Porfolio
+Our Portfolio

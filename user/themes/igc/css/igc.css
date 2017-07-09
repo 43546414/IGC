@@ -118,7 +118,7 @@ ol {
 
 .igc-button {
   font-size: 16px;
-	font-weight: 100;
+  font-weight: 100;
   color: #0071CE;
   border: 1px solid #0071CE;
   border-radius: 4px;
@@ -134,7 +134,7 @@ ol {
 .igc-button-inverse {
   color: #fff;
   border-color: #fff;
-	background-color: transparent;
+  background-color: transparent;
 }
 
 .buttons-philosophy {
@@ -153,6 +153,8 @@ ol {
 }
 .dark-text h4, .dark-text p {
   color: #333E47;
+}
+.dark-text p {
   font-weight: 300;
 }
 
@@ -400,7 +402,7 @@ h2.heading, .heading h2 {
 .investment-col {
   flex-basis: 33.3333%;
   padding: 0 10px;
-	text-align: center;
+  text-align: center;
 }
 .investment-col:first-child {
   padding-left: 0;
@@ -616,7 +618,8 @@ h2.heading, .heading h2 {
   font-weight: 200;
   font-size: 9pt;
   padding-top: 38px;
-   background-color: #FBFBFB;
+  padding-bottom: 20px;
+  background-color: #FBFBFB;
 }
 
 .copyright {
@@ -719,6 +722,7 @@ h2.heading, .heading h2 {
   line-height: 18pt;
   font-size: 12pt;
   padding-top: 15px;
+  margin-bottom: 0;
 }
 
 .principles-last h4 {
@@ -870,17 +874,18 @@ h2.heading, .heading h2 {
   .press {
     margin-right: 20px;
   }
-  .sponsor {
-    position: relative;
-  }
-  .sponsor-text {
-    text-align: center;
-  }
 }
 /* Tablet down */
 @media (max-width: 999px) {
   .investment-content .section-four-content {
     flex-direction: column;
+  }
+
+  .sponsor {
+    position: relative;
+  }
+  .sponsor-text {
+    text-align: center;
   }
 }
 /* Mobile Sizes */

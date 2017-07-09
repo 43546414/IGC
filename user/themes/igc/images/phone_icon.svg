@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="58px" viewBox="0 0 33 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>phone_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="IGC_Contact_Us_ICONS" transform="translate(-366.000000, -217.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="Phone" transform="translate(318.000000, 218.000000)">
+                <g id="phone_icon" transform="translate(49.000000, 0.000000)">
+                    <path d="M29.2043,55.1921 L2.1643,55.1921 C1.3533,55.1921 0.6973,54.5351 0.6973,53.7251 L0.6973,2.1651 C0.6973,1.3541 1.3533,0.6981 2.1643,0.6981 L29.2043,0.6981 C30.0143,0.6981 30.6713,1.3541 30.6713,2.1651 L30.6713,53.7251 C30.6713,54.5351 30.0143,55.1921 29.2043,55.1921 Z" id="Stroke-1"></path>
+                    <path d="M0.6799,8 L30.6419,8" id="Stroke-3"></path>
+                    <path d="M0.6799,42 L30.6419,42" id="Stroke-5"></path>
+                    <path d="M18.3723,48.7516 C18.3723,50.2366 17.1683,51.4396 15.6843,51.4396 C14.1983,51.4396 12.9943,50.2366 12.9943,48.7516 C12.9943,47.2666 14.1983,46.0636 15.6843,46.0636 C17.1683,46.0636 18.3723,47.2666 18.3723,48.7516 Z" id="Stroke-7"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

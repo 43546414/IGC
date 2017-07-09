@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="34px" viewBox="0 0 52 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>email_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="IGC_Contact_Us_ICONS" transform="translate(-1032.000000, -228.000000)" stroke="#FFFFFF" stroke-width="1.6">
+            <g id="Email" transform="translate(949.000000, 229.000000)">
+                <g id="email_icon" transform="translate(84.000000, 0.000000)">
+                    <path d="M0.6971,29.635 L0.6971,2.998 C0.6971,1.728 1.7271,0.698 2.9981,0.698 L47.3391,0.698 C48.6091,0.698 49.6391,1.728 49.6391,2.998 L49.6391,29.635 C49.6391,30.906 48.6091,31.935 47.3391,31.935 L2.9981,31.935 C1.7271,31.935 0.6971,30.906 0.6971,29.635 Z" id="Stroke-1"></path>
+                    <path d="M1.7361,31.5081 L18.1171,16.8791" id="Stroke-3"></path>
+                    <path d="M31.8299,16.4749 L48.6509,31.4719" id="Stroke-5"></path>
+                    <polyline id="Stroke-7" points="48.9148 1.388 24.9638 22.775 1.2198 1.603"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

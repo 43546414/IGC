@@ -13,12 +13,13 @@
 
 #main-section h4 {
   margin-bottom: 80px;
-	letter-spacing: 4px;
+  letter-spacing: 4px;
+  font-weight: 100;
 }
 #main-section .tagline p {
-	font-size: 18px;
-	line-height: 28px;
-	letter-spacing: 2px;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 2px;
 }
 .financial-disclosure-table-container {
   margin: 20px 0;
