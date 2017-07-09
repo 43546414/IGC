@@ -44,6 +44,7 @@
 .company-description h5 {
   font-size: 16px;
   margin-bottom: 7px;
+	display: none;
 }
 
 .company-description p {
@@ -51,32 +52,32 @@
   line-height: 23px;
   margin-bottom: 0px;
   margin-top: 7px;
+	text-align: center;
 }
 
 .company-logo, .company-description {
   margin: 12px 0;
 }
 
+.company-logo {
+  text-align: center;
+}
+
 .company-logo img {
   max-height: 150px;
+  max-width: 300px;
 }
 
 .previous-logo-list.row {
   margin: 0;
 }
-/* Medium devices (1000px and up) */
-@media (min-width: 1000px) {
-  .company {
-    display: flex;
-    align-items: center;
-  }
-  .company-row {
-    height: 190px;
-  }
 
-  .company-logo img {
-    max-height: 190px;
-  }
+.previous {
+	text-align: center;
+}
+.previous-logo img {
+	max-width: 240px;
+	max-height: 120px;
 }
 
 /* All devices but mobile (768px and up) */
@@ -84,4 +85,17 @@
   .banner {
     height: 550px;
   }
+  .company {
+    display: flex;
+    align-items: center;
+  }
+  .company-row {
+    height: 190px;
+  }
+  .company-description h5 {
+		display: block;
+  }
+	.company-description p {
+	  text-align: left;
+	}
 }

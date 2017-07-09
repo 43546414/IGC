@@ -11,12 +11,14 @@
   padding: 120px 0;
 }
 
-#main-section .h-divider {
-  margin-bottom: 10px;
-}
-
 #main-section h4 {
   margin-bottom: 80px;
+	letter-spacing: 4px;
+}
+#main-section .tagline p {
+	font-size: 18px;
+	line-height: 28px;
+	letter-spacing: 2px;
 }
 .financial-disclosure-table-container {
   margin: 20px 0;

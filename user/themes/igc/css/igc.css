@@ -26,7 +26,7 @@ h1 {
   font-style: normal;
   color: #333e47;
   font-size: 42px;
-	margin-top: 80px;
+  margin-top: 80px;
 }
 h1.tagline {
   color: #fff;
@@ -39,7 +39,7 @@ h2 {
   font-style: normal;
   color: #fff;
   font-size: 34px;
-	line-height: 46px;
+  line-height: 46px;
   margin-bottom: 20px;
 }
 
@@ -75,7 +75,7 @@ h5 {
 .lead {
   font-size: 14px;
   font-weight: 300;
-	line-height: 23px;
+  line-height: 23px;
   font-style: normal;
 }
 
@@ -118,6 +118,7 @@ ol {
 
 .igc-button {
   font-size: 16px;
+	font-weight: 100;
   color: #0071CE;
   border: 1px solid #0071CE;
   border-radius: 4px;
@@ -133,25 +134,29 @@ ol {
 .igc-button-inverse {
   color: #fff;
   border-color: #fff;
+	background-color: transparent;
 }
 
 .buttons-philosophy {
   position: absolute;
   bottom: 70px;
   left: 50%;
-  margin-left: -115px;
+  margin-left: -100px;
 }
 
 .capital-buttons {
-  margin-top: 150px;
+  margin-top: 90px;
 }
 
-.dark-text h2, .dark-text h4, .dark-text p {
+.dark-text h2 {
+  color: #333E47;
+}
+.dark-text h4, .dark-text p {
   color: #333E47;
   font-weight: 300;
 }
 
-.light-text {
+.light-text, .light-text p {
   color: #fff;
 }
 
@@ -204,7 +209,7 @@ h2.heading, .heading h2 {
   font-style: normal;
   color: #262526;
   font-size: 12px;
-	font-weight: 300;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
@@ -322,10 +327,7 @@ h2.heading, .heading h2 {
 }
 
 .section-one-content .tagline {
-	color: #fff;
-	margin-top: 30px;
-	margin-right: 40px;
-	margin-left: 40px;
+  color: #fff;
   font-size: 42px;
   line-height: 56px;
 }
@@ -366,7 +368,7 @@ h2.heading, .heading h2 {
 
 .section-three-header {
   margin-top: -12px;
-	min-height: 802px;
+  min-height: 802px;
   background-image:  url(../../../images/bg-section3-1.jpg);
   background-size: cover;
   background-position:center bottom;
@@ -398,6 +400,7 @@ h2.heading, .heading h2 {
 .investment-col {
   flex-basis: 33.3333%;
   padding: 0 10px;
+	text-align: center;
 }
 .investment-col:first-child {
   padding-left: 0;
@@ -416,7 +419,7 @@ h2.heading, .heading h2 {
 
 .investment-col {
   padding: 0 10px;
-	margin-top: 24px;
+  margin-top: 24px;
 }
 .investment-col-icon {
   text-align: center;
@@ -442,8 +445,8 @@ h2.heading, .heading h2 {
 }
 
 .section-five-header .heading {
-	color: #fff;
-	margin-top: 80px;
+  color: #fff;
+  margin-top: 80px;
 }
 
 .section-five-content h5 {
@@ -500,6 +503,7 @@ h2.heading, .heading h2 {
 .philosophy p {
   font-weight: 300 !important;
   font-style: normal;
+  color: #fff;
 }
 
 .principles {
@@ -518,11 +522,11 @@ h2.heading, .heading h2 {
 }
 
 .innovation-buttons {
-  margin-top: 235px;
+  margin-top: 185px;
 }
 
 .global-buttons {
-  margin-top: 210px;
+  margin-top: 150px;
 }
 
 .innovation-buttons .igc-button {
@@ -558,7 +562,7 @@ h2.heading, .heading h2 {
 }
 
 .section-eight-content .tagline {
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
 /* portfolio section */
@@ -609,10 +613,10 @@ h2.heading, .heading h2 {
 
 /* Footer */
 .footer  {
-	font-weight: 200;
-	font-size: 9pt;
+  font-weight: 200;
+  font-size: 9pt;
   padding-top: 38px;
- 	background-color: #FBFBFB;
+   background-color: #FBFBFB;
 }
 
 .copyright {
@@ -648,6 +652,7 @@ h2.heading, .heading h2 {
 
 .press ul {
   list-style: none;
+  padding-left: 0;
 }
 
 .press li {
@@ -660,7 +665,7 @@ h2.heading, .heading h2 {
 /*contact */
 .contact {
   margin-top: 0px;
-	min-height: 870px;
+  min-height: 870px;
   background-image:  url(../../../images/bg-section10-1.jpg);
   background-size: cover;
   background-position:center 80px;
@@ -827,7 +832,6 @@ h2.heading, .heading h2 {
     min-height: auto;
   }
 
-
 }
 /* Tablet Sizes */
 @media screen and (min-width:400px) and (max-width: 999px) {
@@ -848,6 +852,10 @@ h2.heading, .heading h2 {
     padding-top: 15px;
     line-height: 10px;
   }
+
+  .section-seven-header {
+    height: 920px;
+  }
   .carousel-inner {
     min-height: auto;
   }
@@ -859,8 +867,8 @@ h2.heading, .heading h2 {
     column-count: 1;
     column-gap: 40px;
   }
-  .addy {
-    float: left;
+  .press {
+    margin-right: 20px;
   }
   .sponsor {
     position: relative;
@@ -924,6 +932,10 @@ h2.heading, .heading h2 {
   .carousel, .slide {
     height: auto;
   }
+  .section-seven-header {
+    height: 640px;
+  }
+
   .item {
     padding-bottom: 35px;
   }
