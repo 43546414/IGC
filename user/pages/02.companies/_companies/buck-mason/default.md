@@ -6,4 +6,4 @@ title: 'Buck Mason'
 
 Simple and timeless apparel for the modern American man.
 
-[buckmason.com](http://www.buckmason.com)
+<a href="http://www.buckmason.com" target="_blank">buckmason.com</a>

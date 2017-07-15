@@ -6,4 +6,4 @@ title: Jaanuu
 
 Contemporary runway-inspired antimicrobial medical apparel for women.  
 
-[jaanuu.com](https://www.jaanuu.com/)
+<a href="https://www.jaanuu.com/" target="_blank">jaanuu.com</a>
