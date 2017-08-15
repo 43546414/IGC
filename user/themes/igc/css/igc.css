@@ -117,7 +117,7 @@ ol {
 }
 
 .igc-button {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
   color: #0071CE;
   border: 1px solid #0071CE;
@@ -139,13 +139,13 @@ ol {
 
 .buttons-philosophy {
   position: absolute;
-  bottom: 70px;
+  bottom: 90px;
   left: 50%;
   margin-left: -100px;
 }
 
 .capital-buttons {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
 .dark-text h2 {
@@ -411,6 +411,13 @@ h2.heading, .heading h2 {
   padding-right: 0;
 }
 
+@media (min-width: 800px) {
+	.investment-col:last-child {
+		margin-left: 20px;
+		padding-left: 0px;
+	}
+}
+
 .section-four-content h2 {
   color: #262526;
 }
@@ -524,11 +531,11 @@ h2.heading, .heading h2 {
 }
 
 .innovation-buttons {
-  margin-top: 185px;
+  margin-top: 165px;
 }
 
 .global-buttons {
-  margin-top: 150px;
+  margin-top: 130px;
 }
 
 .innovation-buttons .igc-button {
@@ -609,7 +616,7 @@ h2.heading, .heading h2 {
 }
 
 .portfolio-link {
-  margin: 20px 0;
+  margin: 30px 0;
   text-align: center;
 }
 
@@ -689,6 +696,7 @@ h2.heading, .heading h2 {
 /* Terms */
 .terms {
   margin-top: 100px;
+  margin-bottom: 40px;
 }
 
 /* Utility Classes */

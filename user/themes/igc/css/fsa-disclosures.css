@@ -31,7 +31,8 @@
 }
 .financial-table-title-row {
   font-family: 'Hiragino', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
   display: flex;
 }
 .financial-table-title-col, .financial-table-body-col {
