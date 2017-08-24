@@ -641,17 +641,18 @@ h2.heading, .heading h2 {
 .copyright img {
   margin-bottom: 10px;
 }
-.sponsor {
+.ballet {
   position: absolute;
   bottom: 0;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-.sponsor-text {
+.ballet-text {
   text-align: left;
   text-transform: uppercase;
   z-index: 10;
+  margin-bottom: 6px;
 }
 .addy {
   float: right;
@@ -894,11 +895,11 @@ h2.heading, .heading h2 {
     flex-direction: column;
   }
 
-  .sponsor {
+  .ballet {
     position: relative;
 	align-items: center;
   }
-  .sponsor-text {
+  .ballet-text {
     text-align: center;
   }
 }
