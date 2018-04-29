@@ -2,7 +2,7 @@
 /**
  * @package    Grav.Common.Page
  *
- * @copyright  Copyright (C) 2014 - 2016 RocketTheme, LLC. All rights reserved.
+ * @copyright  Copyright (C) 2015 - 2018 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -16,12 +16,13 @@ use Grav\Common\Filesystem\Folder;
 use Grav\Common\Grav;
 use Grav\Common\Language\Language;
 use Grav\Common\Taxonomy;
+use Grav\Common\Uri;
 use Grav\Common\Utils;
 use Grav\Plugin\Admin;
 use RocketTheme\Toolbox\Event\Event;
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 use Whoops\Exception\ErrorException;
-use Collator as Collator;
+use Collator;
 
 class Pages
 {
@@ -43,7 +44,12 @@ class Pages
     /**
      * @var string
      */
-    protected $base;
+    protected $base = '';
+
+    /**
+     * @var array|string[]
+     */
+    protected $baseUrl = [];
 
     /**
      * @var array|string[]
@@ -100,7 +106,6 @@ class Pages
     public function __construct(Grav $c)
     {
         $this->grav = $c;
-        $this->base = '';
     }
 
     /**
@@ -115,9 +120,80 @@ class Pages
         if ($path !== null) {
             $path = trim($path, '/');
             $this->base = $path ? '/' . $path : null;
+            $this->baseUrl = [];
         }
 
         return $this->base;
+    }
+
+    /**
+     *
+     * Get base URL for Grav pages.
+     *
+     * @param  string $lang     Optional language code for multilingual links.
+     * @param  bool   $absolute If true, return absolute url, if false, return relative url. Otherwise return default.
+     *
+     * @return string
+     */
+    public function baseUrl($lang = null, $absolute = null)
+    {
+        $lang = (string) $lang;
+        $type = $absolute === null ? 'base_url' : ($absolute ? 'base_url_absolute' : 'base_url_relative');
+        $key = "{$lang} {$type}";
+
+        if (!isset($this->baseUrl[$key])) {
+            /** @var Config $config */
+            $config = $this->grav['config'];
+
+            /** @var Language $language */
+            $language = $this->grav['language'];
+
+            if (!$lang) {
+                $lang = $language->getActive();
+            }
+
+            $path_append = rtrim($this->grav['pages']->base(), '/');
+            if ($language->getDefault() !== $lang || $config->get('system.languages.include_default_lang') === true) {
+                $path_append .= $lang ? '/' . $lang : '';
+            }
+
+            $this->baseUrl[$key] = $this->grav[$type] . $path_append;
+        }
+
+        return $this->baseUrl[$key];
+    }
+
+    /**
+     *
+     * Get home URL for Grav site.
+     *
+     * @param  string $lang     Optional language code for multilingual links.
+     * @param  bool   $absolute If true, return absolute url, if false, return relative url. Otherwise return default.
+     *
+     * @return string
+     */
+    public function homeUrl($lang = null, $absolute = null)
+    {
+        return $this->baseUrl($lang, $absolute) ?: '/';
+    }
+
+    /**
+     *
+     * Get home URL for Grav site.
+     *
+     * @param  string $route    Optional route to the page.
+     * @param  string $lang     Optional language code for multilingual links.
+     * @param  bool   $absolute If true, return absolute url, if false, return relative url. Otherwise return default.
+     *
+     * @return string
+     */
+    public function url($route = '/', $lang = null, $absolute = null)
+    {
+        if ($route === '/') {
+            return $this->homeUrl($lang, $absolute);
+        }
+
+        return $this->baseUrl($lang, $absolute) . Uri::filterPath($route);
     }
 
     /**
@@ -189,6 +265,8 @@ class Pages
             $this->children[$page->parent()->path()][$page->path()] = ['slug' => $page->slug()];
         }
         $this->routes[$route] = $page->path();
+
+        $this->grav->fireEvent('onPageProcessed', new Event(['page' => $page]));
     }
 
     /**
@@ -222,7 +300,7 @@ class Pages
 
         $sort = $this->sort[$path][$order_by];
 
-        if ($order_dir != 'asc') {
+        if ($order_dir !== 'asc') {
             $sort = array_reverse($sort);
         }
 
@@ -252,7 +330,7 @@ class Pages
 
         $sort = $this->sort[$lookup][$orderBy];
 
-        if ($orderDir != 'asc') {
+        if ($orderDir !== 'asc') {
             $sort = array_reverse($sort);
         }
 
@@ -270,10 +348,6 @@ class Pages
      */
     public function get($path)
     {
-        if (!is_null($path) && !is_string($path)) {
-            throw new \Exception();
-        }
-
         return isset($this->instances[(string)$path]) ? $this->instances[(string)$path] : null;
     }
 
@@ -301,13 +375,13 @@ class Pages
      */
     public function ancestor($route, $path = null)
     {
-        if (!is_null($path)) {
-
+        if ($path !== null) {
             $page = $this->dispatch($route, true);
 
-            if ($page->path() == $path) {
+            if ($page && $page->path() === $path) {
                 return $page;
-            } elseif (!$page->parent()->root()) {
+            }
+            if ($page && !$page->parent()->root()) {
                 return $this->ancestor($page->parent()->route(), $path);
             }
         }
@@ -325,15 +399,14 @@ class Pages
      */
     public function inherited($route, $field = null)
     {
-        if (!is_null($field)) {
+        if ($field !== null) {
 
             $page = $this->dispatch($route, true);
 
-            $ancestorField = $page->parent()->value('header.' . $field);
-
-            if ($ancestorField != null) {
+            if ($page && $page->parent()->value('header.' . $field) !== null) {
                 return $page->parent();
-            } elseif (!$page->parent()->root()) {
+            }
+            if ($page && !$page->parent()->root()) {
                 return $this->inherited($page->parent()->route(), $field);
             }
         }
@@ -366,6 +439,8 @@ class Pages
      */
     public function dispatch($route, $all = false, $redirect = true)
     {
+        $route = urldecode($route);
+
         // Fetch page if there's a defined route to it.
         $page = isset($this->routes[$route]) ? $this->get($this->routes[$route]) : null;
         // Try without trailing slash
@@ -405,7 +480,7 @@ class Pages
                     $site_redirects = $config->get("site.redirects");
                     if (is_array($site_redirects)) {
                         foreach ((array)$site_redirects as $pattern => $replace) {
-                            $pattern = '#' . $pattern . '#';
+                            $pattern = '#^' . str_replace('/', '\/', ltrim($pattern, '^')) . '#';
                             try {
                                 $found = preg_replace($pattern, $replace, $source_url);
                                 if ($found != $source_url) {
@@ -421,10 +496,10 @@ class Pages
                     $site_routes = $config->get("site.routes");
                     if (is_array($site_routes)) {
                         foreach ((array)$site_routes as $pattern => $replace) {
-                            $pattern = '#' . $pattern . '#';
+                            $pattern = '#^' . str_replace('/', '\/', ltrim($pattern, '^')) . '#';
                             try {
                                 $found = preg_replace($pattern, $replace, $source_url);
-                                if ($found != $source_url) {
+                                if ($found !== $source_url) {
                                     $page = $this->dispatch($found, $all);
                                 }
                             } catch (ErrorException $e) {
@@ -460,7 +535,7 @@ class Pages
      */
     public function blueprints($type)
     {
-        if (!isset($this->blueprints)) {
+        if ($this->blueprints === null) {
             $this->blueprints = new Blueprints(self::getTypes());
         }
 
@@ -595,7 +670,7 @@ class Pages
 
         }
 
-        if ($limitLevels == false || ($level+1 < $limitLevels)) {
+        if ($limitLevels === false || ($level+1 < $limitLevels)) {
             foreach ($current->children() as $next) {
                 if ($showAll || $next->routable() || ($next->modular() && $showModular)) {
                     $list = array_merge($list, $this->getList($next, $level + 1, $rawRoutes, $showAll, $showFullpath, $showSlug, $showModular, $limitLevels));
@@ -895,7 +970,7 @@ class Pages
      * @throws \RuntimeException
      * @internal
      */
-    protected function recurse($directory, Page &$parent = null)
+    protected function recurse($directory, Page $parent = null)
     {
         $directory = rtrim($directory, DS);
         $page = new Page;
@@ -948,7 +1023,7 @@ class Pages
                     if ($found->isDir()) {
                         continue;
                     }
-                    $regex = '/^[^\.]*' . preg_quote($extension) . '$/';
+                    $regex = '/^[^\.]*' . preg_quote($extension, '/') . '$/';
                     if (preg_match($regex, $found->getFilename())) {
                         $page_found = $found;
                         $page_extension = $extension;
@@ -978,10 +1053,8 @@ class Pages
             $name = $file->getFilename();
 
             // Ignore all hidden files if set.
-            if ($this->ignore_hidden) {
-                if ($name && $name[0] == '.') {
-                    continue;
-                }
+            if ($this->ignore_hidden && $name && $name[0] === '.') {
+                continue;
             }
 
             if ($file->isFile()) {
@@ -1021,7 +1094,7 @@ class Pages
         }
 
         // Override the modified time if modular
-        if ($page->template() == 'modular') {
+        if ($page->template() === 'modular') {
             foreach ($page->collection() as $child) {
                 $modified = $child->modified();
 
@@ -1099,6 +1172,7 @@ class Pages
      * @param array  $pages
      * @param string $order_by
      * @param array  $manual
+     * @param int    $sort_flags
      *
      * @throws \RuntimeException
      * @internal
@@ -1129,25 +1203,28 @@ class Pages
                     break;
                 case 'date':
                     $list[$key] = $child->date();
-                    $sort_flags = SORT_REGULAR;
+                    $sort_flags = SORT_NUMERIC;
                     break;
                 case 'modified':
                     $list[$key] = $child->modified();
-                    $sort_flags = SORT_REGULAR;
+                    $sort_flags = SORT_NUMERIC;
                     break;
                 case 'publish_date':
                     $list[$key] = $child->publishDate();
-                    $sort_flags = SORT_REGULAR;
+                    $sort_flags = SORT_NUMERIC;
                     break;
                 case 'unpublish_date':
                     $list[$key] = $child->unpublishDate();
-                    $sort_flags = SORT_REGULAR;
+                    $sort_flags = SORT_NUMERIC;
                     break;
                 case 'slug':
                     $list[$key] = $child->slug();
                     break;
                 case 'basename':
                     $list[$key] = basename($key);
+                    break;
+                case 'folder':
+                    $list[$key] = $child->folder();
                     break;
                 case (is_string($header_query[0])):
                     $child_header = new Header((array)$child->header());
@@ -1174,14 +1251,27 @@ class Pages
         }
 
         // handle special case when order_by is random
-        if ($order_by == 'random') {
+        if ($order_by === 'random') {
             $list = $this->arrayShuffle($list);
         } else {
             // else just sort the list according to specified key
-            if (extension_loaded('intl')) {
+            if (extension_loaded('intl') && $this->grav['config']->get('system.intl_enabled')) {
                 $locale = setlocale(LC_COLLATE, 0); //`setlocale` with a 0 param returns the current locale set
                 $col = Collator::create($locale);
                 if ($col) {
+                    if (($sort_flags & SORT_NATURAL) === SORT_NATURAL) {
+                        $list = preg_replace_callback('~([0-9]+)\.~', function($number) {
+                            return sprintf('%032d.', $number[0]);
+                        }, $list);
+
+                        $list_vals = array_values($list);
+                        if (is_numeric(array_shift($list_vals))) {
+                            $sort_flags = Collator::SORT_REGULAR;
+                        } else {
+                            $sort_flags = Collator::SORT_STRING;
+                        }
+                    }
+
                     $col->asort($list, $sort_flags);
                 } else {
                     asort($list, $sort_flags);

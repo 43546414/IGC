@@ -117,7 +117,7 @@ ol {
 }
 
 .igc-button {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
   color: #0071CE;
   border: 1px solid #0071CE;
@@ -139,13 +139,13 @@ ol {
 
 .buttons-philosophy {
   position: absolute;
-  bottom: 70px;
+  bottom: 90px;
   left: 50%;
   margin-left: -100px;
 }
 
 .capital-buttons {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
 .dark-text h2 {
@@ -411,6 +411,13 @@ h2.heading, .heading h2 {
   padding-right: 0;
 }
 
+@media (min-width: 800px) {
+	.investment-col:last-child {
+		margin-left: 20px;
+		padding-left: 0px;
+	}
+}
+
 .section-four-content h2 {
   color: #262526;
 }
@@ -524,11 +531,11 @@ h2.heading, .heading h2 {
 }
 
 .innovation-buttons {
-  margin-top: 185px;
+  margin-top: 165px;
 }
 
 .global-buttons {
-  margin-top: 150px;
+  margin-top: 130px;
 }
 
 .innovation-buttons .igc-button {
@@ -609,9 +616,20 @@ h2.heading, .heading h2 {
 }
 
 .portfolio-link {
-  margin: 20px 0;
+  margin: 30px 0;
   text-align: center;
 }
+
+.section-portfolio .col-xs-6 {
+ width: 49%;
+}
+
+@media (min-width: 768px) {
+  .section-portfolio .col-sm-4 {
+    width: 33%;
+  }
+}
+
 
 /* Footer */
 .footer  {
@@ -626,6 +644,7 @@ h2.heading, .heading h2 {
   margin-top: 70px;
   text-align: center;
   margin-bottom: 20px;
+  position: relative;
 }
 .copyright p {
   font-size: 12px;
@@ -633,13 +652,18 @@ h2.heading, .heading h2 {
 .copyright img {
   margin-bottom: 10px;
 }
-.sponsor {
+.ballet {
   position: absolute;
   bottom: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
-.sponsor-text {
+.ballet-text {
   text-align: left;
   text-transform: uppercase;
+  z-index: 10;
+  margin-bottom: 6px;
 }
 .addy {
   float: right;
@@ -689,6 +713,7 @@ h2.heading, .heading h2 {
 /* Terms */
 .terms {
   margin-top: 100px;
+  margin-bottom: 40px;
 }
 
 /* Utility Classes */
@@ -806,15 +831,15 @@ h2.heading, .heading h2 {
     min-height: 65px;
   }
   .innovation-buttons {
-    margin-top: 180px;
+    margin-top: 55px;
   }
 
   .global-buttons {
-    margin-top: 155px;
+    margin-top: 45px;
   }
 
   .capital-buttons {
-    margin-top: 90px;
+    margin-top: 0px;
   }
 }
 
@@ -881,10 +906,11 @@ h2.heading, .heading h2 {
     flex-direction: column;
   }
 
-  .sponsor {
+  .ballet {
     position: relative;
+	align-items: center;
   }
-  .sponsor-text {
+  .ballet-text {
     text-align: center;
   }
 }

@@ -2,13 +2,13 @@
 /**
  * @package    Grav.Core
  *
- * @copyright  Copyright (C) 2014 - 2016 RocketTheme, LLC. All rights reserved.
+ * @copyright  Copyright (C) 2015 - 2018 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
 // Some standard defines
 define('GRAV', true);
-define('GRAV_VERSION', '1.2.4');
+define('GRAV_VERSION', '1.4.3');
 define('GRAV_TESTING', false);
 define('DS', '/');
 

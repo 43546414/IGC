@@ -12,8 +12,18 @@
 		<meta name="author" content="Innovation Global Capital">
     {% include 'partials/metadata.html.twig' %}
 
-    <!--link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" /-->
+    <!--link rel="icon" type="image/png" href="{{ url('theme://images/favicon.ico') }}" /-->
     <!--link rel="canonical" href="{{ page.url(true, true) }}" /-->
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110189540-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-110189540-1');
+		</script>
 
     {% block stylesheets %}
         {% do assets.addCss('//cloud.typography.com/7078452/619302/css/fonts.css', 100) %}
@@ -55,7 +65,7 @@
             <li><a href="/#firm">The Firm</a></li>
 <!--          <li><a href="#leadership">Leadership</a></li> -->
             <li><a href="/#investment">Investment Strategy</a></li>
-            <li><a href="companies.html">Companies</a></li>
+            <li><a href="companies.html">Our Companies</a></li>
 <!--          <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Press <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -115,9 +125,9 @@
     </div><!-- /row -->
     <div class="row">
       <div class="col-sm-12 copyright">
-        <div class="sponsor">
-          <div class="sponsor-text">Proud Sponsor Of</div>
-          <img src="{{ url('theme://images/SFB.png') }}" alt="proud sponsor of San Francisco Ballet">
+        <div class="ballet">
+          <div class="ballet-text">Proud Sponsor Of</div>
+          <div><img src="{{ url('theme://images/SFB.png') }}" alt="proud sponsor of San Francisco Ballet"></div>
         </div>
         <p>
           &copy; 2013 - 2017 Innovation Global Capital, LLC

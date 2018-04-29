@@ -6,4 +6,4 @@ title: 'Marine Layer'
 
 The softest California inspired apparel you will find for women and men.
 
-[marinelayer.com](https://www.marinelayer.com/)
+<a href="https://www.marinelayer.com/" target="_blank">marinelayer.com</a>

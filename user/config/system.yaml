@@ -6,7 +6,10 @@ force_ssl: false
 username_regex: '^[a-z0-9_-]{3,16}$'
 pwd_regex: '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
 languages:
-  include_default_lang: true
+  supported:
+    - ja
+    - en
+  include_default_lang: false
   translations: true
   translations_fallback: true
   session_store_active: false
@@ -75,6 +78,7 @@ cache:
     method: file
   driver: auto
   prefix: g
+  clear_images_by_default: true
   cli_compatibility: false
   lifetime: 604800
   gzip: false
@@ -117,7 +121,8 @@ images:
   auto_fix_orientation: false
 media:
   enable_media_timestamp: false
-  upload_limit: 0
+  auto_metadata_exif: false
+  upload_limit: 2097152
 session:
   enabled: true
   timeout: 3600

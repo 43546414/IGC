@@ -1,5 +1,5 @@
 ---
-title: Companies
+title: 'Our Companies'
 content:
     items: '@self.modular'
     order:

@@ -829,7 +829,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     .on('click.bs.dropdown.data-api'  , toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
     .on('click', '.navbar-collapse.in', function(e) {if($(e.target).is('a')){$(this).collapse('hide');}})
-    
+
 }(window.jQuery);
 
 /* ========================================================================
@@ -2005,3 +2005,62 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   })
 
 }(window.jQuery);
+
+//form validator
+(function ($) { "use strict";
+
+  var formValidator = function(form) {
+    var _$form = this.$form = $(form)
+    var _fields = this.fields = _$form.find(".form-input-wrapper input")
+		var _recaptcha = this.recaptcha = _$form.find(".g-recaptcha")
+
+		this.submit = _$form.find(".contact-submit button[type='submit']")
+		var validate = this.validateField
+
+    _fields.each(function() {
+      var $field = $(this)
+      $field.blur(function() {
+				validate($field)
+      })
+    })
+
+		this.submit.click(function(e) {
+	    e.preventDefault()
+	    e.stopPropagation()
+			var canSubmit = true
+
+			_fields.each(function() {
+	      var $field = $(this)
+				if (!validate($field)) {
+					canSubmit = false
+				}
+			})
+
+      if (_recaptcha.has("#g-recaptcha-response").length && $("#g-recaptcha-response").val() === '') {
+        _recaptcha.addClass("has-error")
+      } else {
+        _recaptcha.removeClass("has-error")
+			}
+
+			canSubmit && _$form.submit()
+		})
+  }
+
+	formValidator.prototype.validateField = function($field) {
+    if ($field[0].checkValidity()) {
+      $field.removeClass("has-error")
+      return true
+    }
+
+    $field.addClass("has-error")
+		return false
+	}
+
+
+  $(window).on('load', function () {
+    $('form').each(function () {
+      var $form = $(this)
+      var validator = new formValidator($form)
+    })
+  })
+})(window.jQuery)

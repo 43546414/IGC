@@ -22,7 +22,7 @@
   letter-spacing: 2px;
 }
 .financial-disclosure-table-container {
-  margin: 20px 0;
+  margin: 20px 0 70px;
   min-width: 828px;
 }
 .financial-table-title-wrapper {
@@ -31,7 +31,8 @@
 }
 .financial-table-title-row {
   font-family: 'Hiragino', 'Gotham SSm A', 'Gotham SSm B' sans-serif;
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
   display: flex;
 }
 .financial-table-title-col, .financial-table-body-col {
@@ -44,10 +45,64 @@
 }
 .financial-table-body-row {
   display: flex;
+  margin-top: 6px;
+  margin-bottom: 10px;
 }
 .financial-table-body {
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+.contact-form-wrapper {
+  margin-top: 32px;
+  padding: 0 2em;
+}
+
+.contact-form-wrapper .row {
+  margin-top: 32px;
+}
+.contact-form-wrapper .form-field {
+  margin-bottom: 21px;
+}
+.contact-form-wrapper .required {
+  opacity: 0;
+}
+.form-input-wrapper input {
+  background-color: #f6f6f6;
+  width: 320px;
+  height: 2.8em;
+  border: 1px solid #aeaeae;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 0 8px;
+}
+.form-input-wrapper input.has-error {
+	background: #f9f2f4;
+	border: #c7254e 1px solid;
+}
+.g-recaptcha.has-error > div {
+	border: #c7254e 1px solid;
+}
+
+.contact-form-wrapper .form-field.recaptcha {
+  padding-top: 20px;
+}
+.contact-form-wrapper .form-field.recaptcha .form-label {
+  display: none;
+}
+.contact-form-wrapper .buttons {
+  position: inherit;
+  margin: 20px 0 0;
+  bottom: unset;
+  padding-top: 24px;
+}
+.contact-form-wrapper .contact-submit .btn {
+  width: 120px;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  padding: 10px 0;
 }
 /* Medium devices (1000px and up) */
 @media (min-width: 1000px) {

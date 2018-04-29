@@ -9,5 +9,5 @@ content:
             - _main-header
             - _main-content
             - _table
+            - _form
 ---
-

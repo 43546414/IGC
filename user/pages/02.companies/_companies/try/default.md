@@ -6,4 +6,4 @@ title: Try
 
 Try clothes from your favorite online stores with just the click of a button.  
 
-[try.com](https://try.com/)
+<a href="https://try.com/" target="_blank">try.com</a>
