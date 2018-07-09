@@ -13,13 +13,13 @@ content:
             - kjaer-weis
             - alchemy-43
             - bow-and-drape
+            - choosy
             - gameon
             - hero
             - jaanuu
             - plae
             - price-com
             - raw-green-organics
-            - shop-the-creative
             - snobswap
             - try
 ---
