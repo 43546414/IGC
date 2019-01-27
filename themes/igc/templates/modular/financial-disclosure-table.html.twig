@@ -1,0 +1,24 @@
+{% block content %}
+  <div class="financial-disclosure-table-container row">
+  <div class="financial-disclosure-table col-xs-12">
+    <div class="financial-table-title-wrapper row">
+    <div class="financial-table-title-row col-md-8 col-md-offset-2">
+      <div class="financial-table-title-col general-partner-name">ジェネラル・パートナー
+<br/>（適格機関投資家等特例業務届出業者)</div>
+      <div class="financial-table-title-col attachment">ファンド</div>
+    </div>
+    </div>
+    <div class="financial-table-body-wrapper row">
+    <div class="financial-table-body col-md-8 col-md-offset-2">
+    {% for row in page.collection() %}
+      <div class="financial-table-body-row">
+      {% for column in row.content|striptags('<a>')|split('|') %}
+        <div class="financial-table-body-col">{{ column }}</div>
+      {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}

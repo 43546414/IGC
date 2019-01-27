@@ -1,0 +1,15 @@
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+{% block content %}
+  <div class="section-{{ _self.pageLinkName(page.menu) }}">
+    <div class="container">
+    <div class="row">
+      <div class="content-wrapper content-section col-lg-8 col-lg-offset-2 dark-text">
+      {% for content in page.collection() %}
+        {{ content.content }}
+      {% endfor %}
+      </div>
+    </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+enabled: true
+from: fsainfo@innovationglobal.com
+from_name: 'Innovation Global'
+to: fsainfo@innovationglobal.com
+mailer:
+  engine: smtp
+  smtp:
+    server: smtp.office365.com
+    port: 587
+    encryption: tls
+    user: fsainfo@innovationglobal.com
+    password: vwrdfxwhbxrnshtj
+  sendmail:
+    bin: '/usr/sbin/sendmail -bs'
+content_type: text/html
+debug: true

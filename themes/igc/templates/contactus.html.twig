@@ -1,0 +1,24 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<div class="contact">
+  <div class="contact-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="{{ url('theme://images/phone_icon.svg') }}" alt="ico-phone@2x" width="30" height="30">
+          <p>(415) 926-2030</p>
+        </div>
+        <div class="col-sm-4">
+          <img src="{{ url('theme://images/pin_icon.svg') }}" alt="ico-loc@2x" width="30" height="30">
+          <p><a href="https://maps.google.com/maps?q=555+California+St+%234925,+San+Francisco,+San+Francisco+County,+California+94109&hl=en&geocode=FT-rQAId30e0-A&hnear=555+California+St+%234925,+San+Francisco,+California+94109&t=m&z=17" target="_blank" >555 California St Suite 4925 <br> San Francisco, CA 94104</a></p>
+        </div>
+        <div class="col-sm-4">
+          <img src="{{ url('theme://images/email_icon.svg') }}" alt="ico-mail@2x" width="30" height="30">
+          <p><a href="mailto:info@innovationglobal.com">info@innovationglobal.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% block content %}
+  <div class="content-section dark-text">
+  {% for content in page.collection() %}
+    {{ content.content }}
+  {% endfor %}
+  </div>
+{% endblock %}
